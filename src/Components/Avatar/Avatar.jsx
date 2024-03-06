@@ -17,7 +17,7 @@ function Avatar({ src, alt, children }) {
             ? "avatar"
             : children
             ? "avatar avatar-letters"
-            : "avatar avatar-icon"
+            : `avatar avatar-icon ${chooseColor} `
         }
       >
         {src ? (

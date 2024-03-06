@@ -3,18 +3,14 @@
 }
 
 body {
+    background-color: #2f2f2f;
+    height: 100vh;
     margin: 0;
     padding: 0;
-    background-color: #e9e3ff;
-}
-
-main {
-    height: 100vh;
-    width: 100vw;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    margin-top: 40px;
+    font-family: Inter;
 }
 
 button {
@@ -31,19 +27,18 @@ button {
     align-items: center;
 }
 
+button:focus {
+    outline: none;
+}
+
 button.button-sm {
     padding: 7px 11px;
     font-size: 12px;
 }
 
 button.button-lg {
-    padding: 30px 40px;
+    padding: 13px 25px;
 }
-
-.green {
-    color: green;
-}
-
 
 button.button-success {
     color: #047857;
@@ -61,4 +56,42 @@ button.button-danger {
     color: #F87171;
     background-color: #FEF2F2;
     border-color: #F87171;
+}
+
+.menu {
+    position: relative;
+    display: inline-block;
+}
+
+.menu-button {
+    background-color: white;
+}
+
+.menu-dropdown {
+    position: absolute;
+    left: 0;
+    margin-top: 3px;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 6px;
+    background-color: white;
+}
+
+.menu-item {
+    color: #4B5563;
+    padding: .75rem;
+    cursor: pointer;
+    min-width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
+
+.menu-item:hover {
+    background-color: whitesmoke;
+}
+
+.menu-item:not(:last-child) {
+    border-bottom: 1px solid #6B7280;
 }
