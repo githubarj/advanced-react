@@ -1,0 +1,9 @@
+props.children - when you pass anything to a component element between opening and closing tags, React sends it to a 
+prop called children that cn be accessed by passing the children prop
+
+
+to these created components, you can add normal html attributes and listenersby passing them in the correct formart as props
+and then using the object spread operator to pass them into the specific elements you want the attributes to apply
+
+when doing object desctructuring, you can use a ...rest - (replace rest with whatever) eg, { name , location , ...rest }
+this will destructure name and location and then put al other key-vaue pairs in an object called rest
