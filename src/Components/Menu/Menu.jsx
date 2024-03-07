@@ -1,9 +1,8 @@
-import React, { Children } from "react";
-import PropTypes from "prop-types"
+import PropTypes from "prop-types";
+import { useState, Children, cloneElement} from "react";
 
-export default function Menu({children}) {
-
-  const [open, setOpen] = React.useState(true);
+export default function Menu({ children }) {
+  const [open, setOpen] = useState(true);
 
   function toggle() {
     setOpen((prevOpen) => !prevOpen);
@@ -11,12 +10,13 @@ export default function Menu({children}) {
 
   return (
     <div className="menu">
-     {children}
+      {Children.map(children, (child, index) =>
+        cloneElement(child, { key: index, open, toggle })
+      )}
     </div>
   );
 }
 
-
 Menu.propTypes = {
-    children: PropTypes.array,
-}
+  children: PropTypes.node,
+};

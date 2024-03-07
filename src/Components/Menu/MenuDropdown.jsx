@@ -1,16 +1,13 @@
 import PropTypes from "prop-types";
-export default function MenuDropdown({ items }) {
+export default function MenuDropdown({ children , open }) {
   return (
     <div className="menu-dropdown">
-      {items.map((item) => (
-        <div className="menu-item" key={item}>
-          {item}
-        </div>
-      ))}
+      { open &&  children}
     </div>
   );
 }
 
 MenuDropdown.propTypes = {
-  items: PropTypes.object,
+  children: PropTypes.array,
+  open: PropTypes.bool,
 };

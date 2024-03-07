@@ -1,11 +1,10 @@
 import Button from "../Button";
-import PropTypes from "prop-types"
-export default function MenuButton({ buttonText, onClick }) {
-  return <Button onClick={onClick}>{buttonText}</Button>;
+import PropTypes from "prop-types";
+export default function MenuButton({ children, toggle }) {
+  return <Button onClick={toggle}>{children}</Button>;
 }
-
 
 MenuButton.propTypes = {
-    buttonText : PropTypes.string,
-    onClick : PropTypes.func,
-}
+  children: PropTypes.node,
+  toggle: PropTypes.func,
+};
