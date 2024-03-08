@@ -1,4 +1,5 @@
 import "./App.css";
+import Get from "./Components/API/Get";
 // import Avatar from "./Components/Avatar/Avatar";
 import Menu from "./Components/Menu/Menu";
 import MenuButton from "./Components/Menu/MenuButton";
@@ -19,6 +20,9 @@ function App() {
           ))}
         </MenuDropdown>
       </Menu>
+
+            <Get />
+
 
       {/* <Button onClick={logIn} variant="success" size="sm" className="green">
         <FcGoogle />
