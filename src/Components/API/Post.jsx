@@ -7,11 +7,17 @@ import { FormContext } from "../../App";
 function Post() {
   const { data } = useContext(FormContext);
 
-  const method = () =>
-    axios.put("https://jsonplaceholder.typicode.com/posts/1", data);
+  const method = axios
+    .post("https://jsonplaceholder.typicode.com/posts", data)
+    .then((res) => res);
 
   return (
-    <Form task="Posting" alertMessage="Sent Successfully" method={method} />
+    <Form
+      task="Posting"
+      alertMessage="Sent Successfully"
+      method={method}
+      buttonText="Post"
+    />
   );
 }
 

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useContext } from "react";
 import { FormContext } from "../../App";
 
-function Form({ method, alertMessage, task }) {
+function Form({ method, alertMessage, task, buttonText, show }) {
   const { data, setFormData } = useContext(FormContext);
 
   let [display, setDisplay] = useState({});
@@ -19,9 +19,12 @@ function Form({ method, alertMessage, task }) {
     setFormData({ title: "", body: "" });
     try {
       let res = await method;
-      console.log(res.data);
       alert(alertMessage);
-      setDisplay({ title: data.title, body: data.body });
+      setDisplay({
+        title: res.data.title,
+        body: res.data.body,
+        id: res.data.id,
+      });
     } catch (err) {
       console.error(err);
     }
@@ -37,25 +40,26 @@ function Form({ method, alertMessage, task }) {
             name="title"
             id="title"
             placeholder="Title"
-            required
             value={data.title}
             onChange={handleChange}
+            style={{ display: show }}
           />
           <textarea
             type="text"
             name="body"
             id="body"
             placeholder="Body"
-            required
             value={data.body}
             onChange={handleChange}
+            style={{ display: show }}
           />
-          <button type="submit">Submit</button>
+          <button type="submit">{buttonText}</button>
         </form>
         <hr />
         <div id="data-returned">
-          <h3>{display.title}</h3>
-          <p>{display.body}</p>
+          <p>Id: {display.id} </p>
+          <h3>Title: {display.title}</h3>
+          <p>Body: {display.body}</p>
         </div>
       </div>
     </div>
@@ -63,8 +67,10 @@ function Form({ method, alertMessage, task }) {
 }
 
 Form.propTypes = {
-  method: PropTypes.func,
+  method: PropTypes.object,
   task: PropTypes.string,
+  show: PropTypes.string,
+  buttonText: PropTypes.string,
   alertMessage: PropTypes.string,
 };
 

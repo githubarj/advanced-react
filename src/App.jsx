@@ -1,5 +1,6 @@
 import "./App.css";
 import Get from "./Components/API/Get";
+import GetData from "./Components/API/GetData";
 import Post from "./Components/API/Post";
 import Put from "./Components/API/Put";
 // import Avatar from "./Components/Avatar/Avatar";
@@ -11,18 +12,18 @@ import MenuItem from "./Components/Menu/MenuItem";
 // import { FcGoogle } from "react-icons/fc";
 import { createContext, useState } from "react";
 
-export const FormContext = createContext()
+export const FormContext = createContext();
 
 function App() {
   let items = ["Tennis", "Pickleball", "Racquetball", "Squash"];
 
-   const [data, setFormData] = useState({
-     title: "",
-     body: "",
-   });
+  const [data, setFormData] = useState({
+    title: "",
+    body: "",
+  });
 
   return (
-    <FormContext.Provider value={{data , setFormData}}>
+    <FormContext.Provider value={{ data, setFormData }}>
       <Menu>
         <MenuButton>Sports</MenuButton>
         <MenuDropdown>
@@ -33,8 +34,9 @@ function App() {
       </Menu>
 
       <Get />
-      <Post />
+      <GetData />
       <Put />
+      <Post />
 
       {/* <Button onClick={logIn} variant="success" size="sm" className="green">
         <FcGoogle />

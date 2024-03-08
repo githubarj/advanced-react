@@ -4,10 +4,18 @@ import { useContext } from "react";
 import { FormContext } from "../../App";
 
 function Put() {
-    const method = () =>
-      axios.put("https://jsonplaceholder.typicode.com/posts/1", data);
+  const { data } = useContext(FormContext);
+
+  const method = axios
+    .put("https://jsonplaceholder.typicode.com/posts/1", data)
+    .then((res) => res);
   return (
-    <Form task="Posting" alertMessage="Sent Successfully" method={method} />
+    <Form
+      task="Updating"
+      alertMessage="Updated Successfully"
+      method={method}
+      buttonText=" Update"
+    />
   );
 }
 
