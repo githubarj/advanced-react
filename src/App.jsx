@@ -3,6 +3,7 @@ import Get from "./Components/API/Get";
 import GetData from "./Components/API/GetData";
 import Post from "./Components/API/Post";
 import Put from "./Components/API/Put";
+import Delete from "./Components/API/Delete"
 // import Avatar from "./Components/Avatar/Avatar";
 import Menu from "./Components/Menu/Menu";
 import MenuButton from "./Components/Menu/MenuButton";
@@ -37,7 +38,7 @@ function App() {
       <GetData />
       <Put />
       <Post />
-
+      <Delete />
       {/* <Button onClick={logIn} variant="success" size="sm" className="green">
         <FcGoogle />
         Log in with Google
