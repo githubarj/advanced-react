@@ -5,10 +5,8 @@ import Post from "./Components/API/Post";
 import Put from "./Components/API/Put";
 import Delete from "./Components/API/Delete"
 // import Avatar from "./Components/Avatar/Avatar";
-import Menu from "./Components/Menu/Menu";
-import MenuButton from "./Components/Menu/MenuButton";
-import MenuDropdown from "./Components/Menu/MenuDropdown";
-import MenuItem from "./Components/Menu/MenuItem";
+import Menu from "./Components/Menu/MenuIndex";
+
 // import Button from "./Components/Button";
 // import { FcGoogle } from "react-icons/fc";
 import { createContext, useState } from "react";
@@ -26,12 +24,12 @@ function App() {
   return (
     <FormContext.Provider value={{ data, setFormData }}>
       <Menu>
-        <MenuButton>Sports</MenuButton>
-        <MenuDropdown>
+        <Menu.Button>Sports</Menu.Button>
+        <Menu.Dropdown>
           {items.map((item, index) => (
-            <MenuItem key={index}> {item}</MenuItem>
+            <Menu.Item key={index}> {item}</Menu.Item>
           ))}
-        </MenuDropdown>
+        </Menu.Dropdown>
       </Menu>
 
       <Get />
